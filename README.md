@@ -1,4 +1,4 @@
-# python-vk-multichat-bot
+## python-vk-multichat-bot
 Общий чат для группы во ВКонтакте.
 
 ### Install
