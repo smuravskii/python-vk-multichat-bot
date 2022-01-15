@@ -39,9 +39,7 @@ def send_msg_to_all(user, msg: str, style: str = 'Default') -> bool:
         receivers_list_cut.append(list_str)
         del receivers_list[-99:]
     if style == 'Default':
-        text = f'''💬 [Global]{' [Admin]' if user.is_admin == 1 else ''} {user.username} ({user.id}):
-        {msg}
-        '''
+        text = f"💬 [Global]{' [Admin]' if user.is_admin == 1 else ''} {user.username} ({user.id}):\n{msg}"
     else:
         text = msg
     for ids in receivers_list_cut:
@@ -138,9 +136,7 @@ def stop_direct_massaging(user) -> bool:
 
 
 def send_ls_msg_to_user(user, message):
-    text = f'''💬 ЛС{' [Admin]' if user.is_admin == 1 else ''} {user.username} ({user.id}):
-    {message}
-    '''
+    text = f"💬 ЛС{' [Admin]' if user.is_admin == 1 else ''} {user.username} ({user.id}):\n{message}"
     return send_msg_to_user(user.ls_with, text)
 
 
@@ -162,13 +158,13 @@ def info_about_user(user):
         _user_massages = 1
 
     text = f'''
-    👤 Ник: {user.username}
-    Роль: {'Admin' if user.is_admin == 1 else 'Участник'}
-    Твой ID: {user.id}
-    
-    Всего сообщений: {_all_massages}
-    Твоих сообщений: {_user_massages} ({round(_user_massages / _all_massages * 100)}%)
-    '''
+👤 Ник: {user.username}
+Роль: {'Admin' if user.is_admin == 1 else 'Участник'}
+Твой ID: {user.id}
+
+Всего сообщений: {_all_massages}
+Твоих сообщений: {_user_massages} ({round(_user_massages / _all_massages * 100)}%)
+'''
     return send_msg_to_user(user.vk_id, text)
 
 
